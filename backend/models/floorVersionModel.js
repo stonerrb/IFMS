@@ -8,7 +8,7 @@ const commitSchema = new mongoose.Schema({
   id: {
     type: String,
     default: generateId,
-    immutable: true, // Commit ID cannot be changed
+    immutable: true,
   },
   _id: {
     type: mongoose.Schema.Types.ObjectId,
@@ -17,7 +17,7 @@ const commitSchema = new mongoose.Schema({
   modifiedBy: { 
     type: mongoose.Schema.Types.ObjectId, 
     ref: "User" 
-},
+  },
   timestamp: {
     type: Date,
     default: Date.now, // Auto-generated timestamp
@@ -30,8 +30,11 @@ const flooVersionSchema = new mongoose.Schema({
     default: generateId,
     immutable: true,
   },
-
   commits: [commitSchema],
+  modifiedBy: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: "User" 
+  }
 });
 
 module.exports = mongoose.model("FloorVersion", flooVersionSchema);

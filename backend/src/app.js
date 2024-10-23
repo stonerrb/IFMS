@@ -12,7 +12,7 @@ const port = 5050;
 
 app.use(express.json());
 app.use(cors());
-// app.use(userRoute);
+app.use(userRoute);
 
 
 app.listen(port, () => {

@@ -13,7 +13,7 @@ const floorSchema = new mongoose.Schema({
 }],
     lastModified: {
         type: Date,
-        default: Date.now, // Auto-generated timestamp
+        default: Date.now,
       },
     modifiedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     priority: { type: Number, default: 0 },

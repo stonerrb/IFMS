@@ -1,9 +1,11 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
+const express = require('express')
 const router = express.Router();
 
-const {addUser} = require('../controllers/userCtrl');
+const {addUser, loginUser} = require('../controllers/userCtrl');
+
+router.use(express.json());
 
 router.post('/addUser', addUser);
+router.post('/login', loginUser);
 
-module.exports = {router};
+module.exports = router;
