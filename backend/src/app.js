@@ -6,7 +6,6 @@ require('../db/mongoose');
 const userRoute = require('../routes/userRoute');
 const floorRoute = require('../routes/floorRoute');
 
-
 // ---------------------------- MAIN ------------------------- // 
 
 const app = express();
@@ -14,7 +13,7 @@ const port = 5050;
 
 app.use(express.json());
 app.use(cors());
-app.use(userRoute);
+app.use(userRoute); 
 app.use(floorRoute);
 
 app.listen(port, () => {

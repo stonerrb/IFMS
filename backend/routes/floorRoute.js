@@ -217,6 +217,7 @@ router.patch("/floors/:floorId/rooms/:roomId", async (req, res) => {
       res.status(500).send('Server error');
     }
   });
+
   router.get('/floors', async (req, res) => {
     try {
       const { projector, whiteboard, speakerSystem, minSeats } = req.query;
@@ -282,6 +283,31 @@ router.patch("/floors/:floorId/rooms/:roomId", async (req, res) => {
       new Date(b.lastModified) - new Date(a.lastModified)
     );
   }
+
+  router.get('/floors/:floorId/rooms', async (req, res) => {
+    try {
+      const { floorId } = req.params;
+  
+      // Fetch all floors with the same floorId and sort by lastModified in descending order
+      const floors = await floorModel.find({ id: floorId }).populate('rooms').sort({ lastModified: -1 });
+  
+      if (!floors || floors.length === 0) {
+        return res.status(404).send('Floor not found');
+      }
+  
+      // Find the latest floor version by comparing lastModified
+      const latestFloor = floors.reduce((latest, current) => {
+        return new Date(current.lastModified) > new Date(latest.lastModified) ? current : latest;
+      });
+  
+      // Return all rooms for the latest floor version
+      res.status(200).json(latestFloor.rooms);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error');
+    }
+  });
+  
 
 // router.post('/rollbackFloor', loginUser);
 
