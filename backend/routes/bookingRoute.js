@@ -33,7 +33,7 @@ router.patch('/floors/:floorId/rooms/:roomId/book', async (req, res) => {
       room.priority = room.priority + 1;
   
       // Save the updated floor document
-      await floor.save();
+      await room.save();
   
       res.status(200).json({ message: 'Room booked successfully', room });
     } catch (error) {

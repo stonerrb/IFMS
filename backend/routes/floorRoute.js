@@ -342,6 +342,45 @@ router.get("/floorsonly", async (req, res) => {
   }
 });
 
+router.post('/floors/:floorId/rollback', async (req, res) => {
+    try {
+      const { floorId } = req.params;
+    
+      // Find the floor by floorId
+      const floor = await floorModel.findById(floorId);
+      console.log(floor);
+      if (!floor) {
+        return res.status(404).send('Floor not found');
+      }
+      // Create a clone of the floor object
+    const clonedFloor = new floorModel({
+        id: floor.id, // Generate a new unique ID for the cloned floor
+        floorNumber: floor.floorNumber,
+        rooms: floor.rooms, // You may choose to clone rooms if you want to create new room documents
+        lastModified: Date.now(), // Set to the current date
+        modifiedBy: req.body.modifiedBy, // Set the user who cloned the floor
+        latest: false, // Set to false for the new document
+        history: floor.history // You may want to include the history of the original floor
+      });
+  
+      // Save the cloned floor document
+      await clonedFloor.save();
+      const newCommit = new commitSchema({
+        id: clonedFloor.id, // Use the floor's ID for commit tracking
+        modifiedBy: req.body.modifiedBy,
+        timestamp: Date.now(),
+      });
+      await newCommit.save();
+    
+      res.status(200).json({ message: 'Floor rolled back successfully', floor });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error');
+    }
+  });
+  
+
+
 // router.post('/rollbackFloor', loginUser);
 
 module.exports = router;
