@@ -8,6 +8,7 @@
     projector: { type: Boolean, default: false },
     whiteboard: { type: Boolean, default: false },
     speakerSystem: { type: Boolean, default: false },
+    isBooked: { type: Boolean, default: false },
     lastModified: Date,
     modifiedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     priority: { type: Number, default: 0 },
