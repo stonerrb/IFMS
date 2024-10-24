@@ -19,7 +19,6 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    // Generate a token (for example, using JWT)
     const token = jwt.sign(
       { userId: user._id, username: user.username, role: user.role }, // Payload
       process.env.JWT_SECRET,

@@ -10,13 +10,15 @@ const floorSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId, 
     ref: "Room" ,
     booked: { type: Boolean, default: false },
+    default:[]
 }],
     lastModified: {
         type: Date,
         default: Date.now,
       },
     modifiedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    priority: { type: Number, default: 0 },
+    latest: { type: Boolean, default: false },
+    
 });
 
 module.exports = mongoose.model("Floor", floorSchema);
