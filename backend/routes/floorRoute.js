@@ -140,7 +140,7 @@ router.patch("/floors/:floorId/rooms/:roomId", async (req, res) => {
     }
 
     // Find the floor
-    const floor = await floorModel.findOne({ id: floorId });
+    const floor = await floorModel.findOne({ id: floorId }).sort({ lastModified: -1 });
     if (!floor) {
       return res.status(404).send("Floor not found");
     }
