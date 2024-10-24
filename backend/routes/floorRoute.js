@@ -224,48 +224,46 @@ router.get("/floors/:floorId/history", async (req, res) => {
   }
 });
 
-router.get("/floors", async (req, res) => {
-  try {
-    const { projector, whiteboard, speakerSystem, minSeats } = req.query;
-
-    // Fetch all floors
-    const floors = await floorModel.find().populate("rooms modifiedBy");
-
-    if (!floors || floors.length === 0) {
-      return res.status(404).send("No floors found");
-    }
-
-    // Process the floor data to get the latest versions
-    const processedFloors = processFloorData(floors);
-    console.log(processedFloors);
-    // Apply room filtering after processing the floors
-    const filteredFloors = processedFloors.map((floor) => {
-      if (Array.isArray(floor.rooms)) {
-        floor.rooms = floor.rooms.filter((room) => {
-          let match = true;
-
-          if (projector !== undefined)
-            match = match && room.projector === (projector === "true");
-          if (whiteboard !== undefined)
-            match = match && room.whiteboard === (whiteboard === "true");
-          if (speakerSystem !== undefined)
-            match = match && room.speakerSystem === (speakerSystem === "true");
-          if (minSeats) {
-            match = match && room.seats >= Number(minSeats);
-          }
-          return match;
-        });
+router.get('/floors', async (req, res) => {
+    try {
+      const { projector, whiteboard, speakerSystem, minSeats } = req.query;
+      
+      // Fetch all floors
+      const floors = await floorModel.find().populate('rooms modifiedBy');
+      
+      if (!floors || floors.length === 0) {
+        return res.status(404).send('No floors found');
       }
-      return floor;
-    });
-
-    // Send the filtered floors with the latest versions
-    res.status(200).json(filteredFloors);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Server error");
-  }
-});
+  
+      // Process the floor data to get the latest versions
+      const processedFloors = processFloorData(floors);
+  
+      // Apply room filtering after processing the floors
+      const filteredFloors = processedFloors
+        .filter(floor => Array.isArray(floor.rooms) && floor.rooms.length > 0) // Filter out floors with no rooms
+        .map(floor => {
+          floor.rooms = floor.rooms.filter(room => {
+            let match = true;
+            
+            if (projector !== undefined) match = match && room.projector === (projector === 'true');
+            if (whiteboard !== undefined) match = match && room.whiteboard === (whiteboard === 'true');
+            if (speakerSystem !== undefined) match = match && room.speakerSystem === (speakerSystem === 'true');
+            if (minSeats) {
+              match = match && room.seats >= Number(minSeats);
+            }
+            return match;
+          });
+          return floor;
+        });
+  
+      // Send the filtered floors with the latest versions
+      res.status(200).json(filteredFloors);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error');
+    }
+  });
+  
 
 function processFloorData(data) {
   // Parse the JSON string if needed
