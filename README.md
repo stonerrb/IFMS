@@ -7,13 +7,8 @@ The Intelligent Floor Plan Management System simplifies space management by enab
 ## Backend Routes : 
 
 ## Video Link
-[![image](https://github.com/Deepanshi03/Intelligent-Floor-Plan-Management-System/assets/92084743/e7ee1f97-9a36-4c4f-93ce-f368df627f01)](https://drive.google.com/file/d/1kdj67KqBeChJVaVYhqvhv8fJtqYPluyE/view?usp=drive_link)
 
 ## Website Design
-
-![image](https://github.com/Deepanshi03/Intelligent-Floor-Plan-Management-System/assets/92084743/dd0154d5-ca22-4cfd-8abb-352922d06b83)
-
-![image](https://github.com/Deepanshi03/Intelligent-Floor-Plan-Management-System/assets/92084743/ab17595b-98d4-4678-a9a4-875c8b717615)
 
 
 ## Floor Plan Management System Features
