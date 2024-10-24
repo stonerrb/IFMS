@@ -308,7 +308,26 @@ router.patch("/floors/:floorId/rooms/:roomId", async (req, res) => {
     }
   });
   
-
+  router.get('/floorsonly', async (req, res) => {
+    try {
+      // Fetch all floors and populate rooms and modifiedBy
+      const floors = await floorModel.find().populate('rooms modifiedBy');
+      
+      if (!floors || floors.length === 0) {
+        return res.status(404).send('No floors found');
+      }
+  
+      // Process the floor data to get the latest versions
+      const processedFloors = processFloorData(floors);
+  
+      // Send the floors with the latest versions
+      res.status(200).json(processedFloors);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error');
+    }
+  });
+  
 // router.post('/rollbackFloor', loginUser);
 
 module.exports = router;
