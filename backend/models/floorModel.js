@@ -21,4 +21,5 @@ const floorSchema = new mongoose.Schema({
     
 });
 
+
 module.exports = mongoose.model("Floor", floorSchema);
