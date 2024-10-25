@@ -5,7 +5,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-const apiURL = 'http://localhost:5050';
+const apiURL = 'https://ifms-elyu.onrender.com';
 
 const Login = () => {
     const navigate = useNavigate();

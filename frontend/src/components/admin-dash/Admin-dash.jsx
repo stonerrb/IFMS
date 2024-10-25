@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import { Button, Card, CardContent, Typography, Grid, Box, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Divider, Snackbar, Alert  } from '@mui/material';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddIcon from '@mui/icons-material/Add';
@@ -6,7 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const apiURL = 'http://localhost:5050';
+const apiURL = 'https://ifms-elyu.onrender.com';
 
 // Custom theme based on the login/signup page color theme
 const theme = createTheme({
@@ -29,11 +29,11 @@ const theme = createTheme({
   },
 });
 
-const floors = [
-  { id: 1, name: 'Floor 1' },
-  { id: 2, name: 'Floor 2' },
-  { id: 3, name: 'Floor 3' },
-];
+// const floors = [
+//   { id: 1, name: 'Floor 1' },
+//   { id: 2, name: 'Floor 2' },
+//   { id: 3, name: 'Floor 3' },
+// ];
 
 function Admindash() {
     const navigate = useNavigate();

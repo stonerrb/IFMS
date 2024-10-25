@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const apiURL = 'http://localhost:5050';
+const apiURL = 'https://ifms-elyu.onrender.com';
 
 const Signup = () => {
   const [data, setData] = useState({ name: '', role: '', password: '' });

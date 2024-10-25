@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import { useParams } from 'react-router-dom';
@@ -12,7 +12,7 @@ function History() {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await axios.get(`http://localhost:5050/floors/${floorId}/history`);
+        const response = await axios.get(`https://ifms-elyu.onrender.com/floors/${floorId}/history`);
         setHistoryData(response.data[response.data.length - 1].floorDetails);    
       } catch (error) {
         console.error('Error fetching history data:', error);
@@ -40,7 +40,7 @@ function History() {
   // Handle rollback action
   const handleRollback = async (floorDetailId) => {
     try {
-      await axios.post(`http://localhost:5050/floors/${floorDetailId}/rollback`);
+      await axios.post(`https://ifms-elyu.onrender.com/floors/${floorDetailId}/rollback`);
       setSnackbar({ open: true, message: 'Rollback successful!', severity: 'success' });
     } catch (error) {
       setSnackbar({ open: true, message: 'Rollback failed. Please try again.', severity: 'error' });
