@@ -1,42 +1,43 @@
-# IFMS (Intelligent Floor Management System)
-The Intelligent Floor Plan Management System simplifies space management by enabling users to view, modify, and book rooms and seats within various floor plans. With intuitive features and user-friendly interface, it streamlines the process of organizing spaces efficiently.
+# Intelligent Floor Management System (IFMS)
 
+The **Intelligent Floor Plan Management System (IFMS)** simplifies space management, allowing users to easily view, modify, and book rooms and seats within various floor plans. With an intuitive interface and powerful features, IFMS streamlines the organization of spaces, making it both efficient and effortless.
 
-## Website Link : 
-## API Documentation : 
-## Backend Routes : 
+## 🌐 Live Links
+- **Website**: [IFMS Frontend](https://ifms-frontend.vercel.app/)
+- **API Documentation**: [API Docs](https://drive.google.com/file/d/1Q0KGBPIvXVVCh8dyOyNfZF_XVtByn3gR/view?usp=sharing)
+- **Backend Routes**: [IFMS Backend](https://ifms-elyu.onrender.com)
+- **Demo Video**: [Watch Video](https://drive.google.com/file/d/1X6r-SeM676X7fBXOZgZeYbTKCiKkriOZ/view?usp=sharing)
 
-## Video Link
+## 🖥️ Website Design
+![image](https://github.com/user-attachments/assets/2e2f1608-7aa6-4a0a-b593-42309e4bdfe8)
+![image](https://github.com/user-attachments/assets/0f83c1b8-f2bb-4e9a-9c81-a558301366a3)
+![image](https://github.com/user-attachments/assets/59e5b2a7-73b8-4a36-a1cc-631f16a66b19)
 
-## Website Design
+## 🚀 Features
 
-
-## Floor Plan Management System Features
-
-1. **View Floor Plans**: Easily browse and visualize existing floor plans.
-
-2. **Modify Floor Plans**: Customize floor plans by updating their names, descriptions, and associated details.
-
+### Floor Plan Management
+1. **View Floor Plans**: Browse and visualize existing floor plans with ease.
+2. **Modify Floor Plans**: Update floor plans by editing names, descriptions, and associated details.
 3. **Delete Floor Plans**: Remove unwanted floor plans from the system with a simple delete action.
+4. **Add Floor Plans**: Add new floor plans seamlessly, complete with descriptions and images.
+5. **Book Rooms**: Reserve rooms for specific dates and times, ensuring efficient space management.
+6. **Modify Room Details**: Adjust room attributes like room number, capacity, and availability status.
+7. **Rollback**: Roll back to previous versions of floor plans to undo unwanted changes.
 
-4. **Add Floor Plans**: Seamlessly add new floor plans to the system, complete with descriptions and images.
+### Additional Features
+- **Deployed Frontend**: Hosted on Vercel for fast and reliable access.
+- **Deployed Backend**: Powered by Render, ensuring scalable performance.
+- **Detailed API Documentation**: Comprehensive documentation to integrate IFMS with other systems.
+- **Search and Filter**: Advanced search and filtering options for efficient navigation.
+- **User-friendly Interface**: Designed for ease of use with intuitive controls and navigation.
+- **Responsive Design**: Fully responsive, ensuring compatibility across devices and screen sizes.
 
-5. **Book Rooms**: Reserve rooms within floor plans for specific dates and times, ensuring efficient space management.
+## 🛠️ Technologies Used
+- **Frontend**: React, Netlify (Deployment)
+- **Backend**: Node.js, Express, Render (Deployment)
+- **Database**: MongoDB
+- **Other Tools**: API Documentation, GitHub, Google Drive (for documentation and media sharing)
 
-6. **Modify Room Details**: Fine-tune room attributes such as room number, capacity, and availability status as per changing requirements.
+---
 
-7. **RollBack**: Roll-Back/Revert to previous commits.
-
-## Additional Features
-
-- **Deployed Frontend**: Deployed Frontend on Netlify
-  
-- **Deployed Backend**: Deployed Backend on Render
-
-- **Detailled API Documentation**: A published Link for a detailded API Documnetation of the routes has been provided
-  
-- **Search and Filter**: Effortlessly find specific floor plans, rooms, or seats using advanced search and filter options.
-
-- **Intuitive Interface**: User-friendly interface designed for easy navigation and seamless interaction with the application.
-
-- **Responsive Design**: Ensure compatibility across devices with a responsive design that adapts to different screen sizes and orientations.
+Feel free to explore the live version, browse through the documentation, and watch the demo video to see how the IFMS can make floor management easier than ever before.
