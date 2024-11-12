@@ -6,7 +6,6 @@ The **Intelligent Floor Plan Management System (IFMS)** simplifies space managem
 - **Website**: [IFMS Frontend](https://ifms-frontend.vercel.app/)
 - **API Documentation**: [API Docs](https://drive.google.com/file/d/1Q0KGBPIvXVVCh8dyOyNfZF_XVtByn3gR/view?usp=sharing)
 - **Backend Routes**: [IFMS Backend](https://ifms-elyu.onrender.com)
-- **Demo Video**: [Watch Video](https://drive.google.com/file/d/1X6r-SeM676X7fBXOZgZeYbTKCiKkriOZ/view?usp=sharing)
 
 ## 🖥️ Website Design
 ![image](https://github.com/user-attachments/assets/2e2f1608-7aa6-4a0a-b593-42309e4bdfe8)
